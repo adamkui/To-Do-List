@@ -2,17 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
   background-image: linear-gradient(120deg, #e2c35d, #d88771);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: white;
   font-family: "Poppins", sans-serif;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-header {
-  font-size: 1.5rem;
+header h1 {
+  font-size: 3rem;
+  text-align: center;
 }
 
 header,
@@ -24,6 +31,12 @@ form {
 }
 
 form {
+  input {
+    width: 40vw;
+  }
+  button {
+    width: 5vw;
+  }
   input,
   button {
     padding: 0.5rem;
@@ -40,6 +53,9 @@ form {
       background: #d88771;
       color: white;
     }
+  }
+  select {
+    width: 10vw;
   }
 }
 
@@ -93,4 +109,40 @@ form {
 .fall {
   transform: translateY(8rem) rotateZ(20deg);
   opacity: 0;
+}
+
+select {
+  appearance: none;
+  outline: none;
+  border: none;
+  color: #ff6f47;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "\25BC";
+    position: absolute;
+    background: #ff6f47;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  &:hover::after {
+    background: white;
+    color: #ff6f47;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  * {
+    font-size: 70%;
+  }
 }
